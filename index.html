@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TANAS - cửa hàng phụ kiện điện thoại: ốp lưng, tai nghe, dây sạc, sạc dự phòng chính hãng, giao nhanh, bảo hành 12 tháng.">
+  <title>TANAS | Phụ kiện điện thoại cao cấp</title>
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+  <!-- Thư viện: Animate.css và AOS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    /* Bật màn intro sớm (trừ khi người dùng tắt hiệu ứng chuyển động). Có chốt an toàn nếu JS lỗi. */
+    (function (d) {
+      if (!matchMedia('(prefers-reduced-motion: reduce)').matches) d.classList.add('has-intro');
+      setTimeout(function () { d.classList.remove('has-intro'); d.classList.add('intro-done'); }, 6000);
+    })(document.documentElement);
+  </script>
+</head>
+<body>
+
+<!-- Màn mở đầu: logo hiện lên, thanh nạp chạy, rồi hai cánh màn mở ra -->
+<aside class="intro" id="intro" aria-hidden="true">
+  <figure class="intro-core">
+    <span class="intro-ring"><img src="assets/img/logo-mark.webp" alt="" width="96" height="96"></span>
+    <p class="intro-word"><span style="--i:0">T</span><span style="--i:1">A</span><span style="--i:2">N</span><span style="--i:3">A</span><span style="--i:4">S</span></p>
+    <p class="intro-sub">Phụ kiện điện thoại cao cấp</p>
+    <span class="intro-bar"><i></i></span>
+    <p class="intro-skip">Nhấn để bỏ qua</p>
+  </figure>
+</aside>
+
+<header class="site-header">
+  <a class="brand" href="#trang-chu" aria-label="TANAS - về đầu trang">
+    <img src="assets/img/logo-mark.webp" alt="" width="44" height="44"><span>TANAS</span>
+  </a>
+  <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mainNav">Menu</button>
+  <nav id="mainNav" class="main-nav" aria-label="Điều hướng chính">
+    <ul>
+      <li><a href="#danh-muc">Danh mục</a></li>
+      <li><a href="#san-pham">Sản phẩm</a></li>
+      <li><a href="#uu-diem">Vì sao chọn TANAS</a></li>
+      <li><a href="#lien-he">Liên hệ</a></li>
+    </ul>
+  </nav>
+  <a class="cart" href="#san-pham" aria-label="Giỏ hàng">Giỏ hàng <span id="cartCount" aria-live="polite">0</span></a>
+</header>
+
+<main>
+  <section id="trang-chu" class="hero" aria-labelledby="hero-title">
+    <canvas class="sparks" id="sparks" aria-hidden="true"></canvas>
+    <div class="hero-text">
+      <p class="eyebrow animate__animated animate__fadeInDown">Phụ kiện điện thoại cao cấp</p>
+      <h1 id="hero-title" class="animate__animated animate__fadeInUp">Nâng tầm chiếc <span class="shine">điện thoại</span> của bạn</h1>
+      <p class="lead animate__animated animate__fadeInUp animate__delay-1s">Ốp lưng, tai nghe, dây sạc và sạc dự phòng được chọn lọc kỹ, bền đẹp, bảo hành 12 tháng.</p>
+      <p class="hero-cta animate__animated animate__bounceIn animate__delay-1s">
+        <a class="btn btn-gold btn-shine" href="#san-pham">Mua ngay</a>
+        <a class="btn btn-ghost" href="#danh-muc">Xem danh mục</a>
+      </p>
+      <ul class="stats animate__animated animate__fadeIn animate__delay-2s">
+        <li><strong data-count="16" data-suffix="+">16+</strong> sản phẩm</li>
+        <li><strong data-count="12">12</strong> tháng bảo hành</li>
+        <li><strong data-count="2" data-suffix=" giờ">2 giờ</strong> giao nội thành</li>
+      </ul>
+    </div>
+    <figure class="hero-art animate__animated animate__fadeInRight">
+      <span class="stage" id="stage">
+        <img class="logo" src="assets/img/logo-tanas.webp" alt="Logo TANAS - Nguyễn Hoài Tấn" width="720" height="720">
+        <ul class="orbit" aria-hidden="true">
+          <li><img src="assets/img/op-lung.svg" alt="" width="64" height="64"></li>
+          <li><img src="assets/img/tai-nghe.svg" alt="" width="64" height="64"></li>
+          <li><img src="assets/img/day-sac.svg" alt="" width="64" height="64"></li>
+          <li><img src="assets/img/sac-du-phong.svg" alt="" width="64" height="64"></li>
+        </ul>
+      </span>
+    </figure>
+  </section>
+
+  <p class="marquee" aria-hidden="true"><span class="track"><span>Giao nhanh 2 giờ</span><span>Bảo hành 12 tháng</span><span>Đổi trả 7 ngày</span><span>Thanh toán an toàn</span><span>Giảm 10% khi đăng ký email</span><span>Giao nhanh 2 giờ</span><span>Bảo hành 12 tháng</span><span>Đổi trả 7 ngày</span><span>Thanh toán an toàn</span><span>Giảm 10% khi đăng ký email</span></span></p>
+
+  <section id="danh-muc" class="section" aria-labelledby="cat-title">
+    <h2 id="cat-title" data-aos="fade-up">Danh mục nổi bật</h2>
+    <ul class="grid grid-4">
+      <li data-aos="zoom-in"><a class="card cat" href="#san-pham" data-filter="case"><img src="assets/img/op-lung.svg" alt="" width="96" height="96"><span>Ốp lưng &amp; miếng dán</span></a></li>
+      <li data-aos="zoom-in" data-aos-delay="100"><a class="card cat" href="#san-pham" data-filter="audio"><img src="assets/img/tai-nghe.svg" alt="" width="96" height="96"><span>Tai nghe</span></a></li>
+      <li data-aos="zoom-in" data-aos-delay="200"><a class="card cat" href="#san-pham" data-filter="cable"><img src="assets/img/day-sac.svg" alt="" width="96" height="96"><span>Cáp &amp; củ sạc</span></a></li>
+      <li data-aos="zoom-in" data-aos-delay="300"><a class="card cat" href="#san-pham" data-filter="power"><img src="assets/img/sac-du-phong.svg" alt="" width="96" height="96"><span>Sạc dự phòng</span></a></li>
+    </ul>
+  </section>
+
+  <section id="san-pham" class="section" aria-labelledby="pro-title">
+    <h2 id="pro-title" data-aos="fade-up">Sản phẩm bán chạy</h2>
+    <ul class="filters" aria-label="Lọc sản phẩm" data-aos="fade-up">
+      <li><button type="button" data-filter="all" aria-pressed="true">Tất cả</button></li>
+      <li><button type="button" data-filter="case" aria-pressed="false">Ốp lưng &amp; miếng dán</button></li>
+      <li><button type="button" data-filter="audio" aria-pressed="false">Tai nghe</button></li>
+      <li><button type="button" data-filter="cable" aria-pressed="false">Cáp &amp; củ sạc</button></li>
+      <li><button type="button" data-filter="power" aria-pressed="false">Sạc dự phòng</button></li>
+    </ul>
+    <div class="grid grid-4">
+      <article class="card product" data-cat="case" data-aos="fade-up">
+        <figure class="tint-lilac"><img src="assets/img/op-lung.svg" alt="Ốp Lưng iPhone 18 Pro Max/17 Pro Max Magnetic O3 NEO TORRAS Tím" width="200" height="200" loading="lazy"></figure>
+        <h3>Ốp lưng Magnetic O3 NEO TORRAS</h3><p class="desc">Cho iPhone 18 Pro Max/17 Pro Max, chất liệu TPU + PC, hỗ trợ từ tính. Màu tím.</p>
+        <p class="price">935.000₫</p><button class="btn btn-sm add-cart" type="button">Thêm vào giỏ</button>
+      </article>
+      <article class="card product" data-cat="case" data-aos="fade-up" data-aos-delay="100">
+        <figure class="tint-lilac"><img src="assets/img/op-lung.svg" alt="Ốp Lưng iPhone 18 Pro Max/17 Pro Max Magnetic Q3 AIR TORRAS Tím" width="200" height="200" loading="lazy"></figure>
+        <h3>Ốp lưng Magnetic Q3 AIR TORRAS</h3><p class="desc">Cho iPhone 18 Pro Max/17 Pro Max, hỗ trợ từ tính Magnetic. Màu tím.</p>
+        <p class="price">1.715.000₫</p><button class="btn btn-sm add-cart" type="button">Thêm vào giỏ</button>
+      </article>
+      <article class="card product" data-cat="case" data-aos="fade-up" data-aos-delay="200">
+        <figure class="tint-lilac"><img src="assets/img/op-lung.svg" alt="Miếng dán kính cường lực chống nhìn trộm iPhone 16 Pro/17 TITAN TORRAS 2 miếng" width="200" height="200" loading="lazy"></figure>
+        <h3>Kính cường lực chống nhìn trộm TORRAS</h3><p class="desc">Cho iPhone 16 Pro/17, chống nhìn trộm, bộ 2 miếng dán.</p>
+        <p class="price">348.000₫</p><button class="btn btn-sm add-cart" type="button">Thêm vào giỏ</button>
+      </article>
+      <article class="card product" data-cat="case" data-aos="fade-up" data-aos-delay="300">
+        <figure class="tint-lilac"><img src="assets/img/op-lung.svg" alt="Miếng dán camera iPhone 17 DEKEY 3D Camera Lens Đen" width="200" height="200" loading="lazy"></figure>
+        <h3>Miếng dán camera DEKEY 3D Lens</h3><p class="desc">Bảo vệ camera iPhone 17, kiểu 3D Camera Lens. Màu đen.</p>
+        <p class="price">167.000₫</p><button class="btn btn-sm add-cart" type="button">Thêm vào giỏ</button>
+      </article>
+      <article class="card product" data-cat="audio" data-aos="fade-up">
+        <figure class="tint-mist"><img src="assets/img/tai-nghe.svg" alt="Tai nghe TWS Philips TAT1120" width="200" height="200" loading="lazy"></figure>
+        <h3>Tai nghe TWS Philips TAT1120</h3><p class="desc">Tai nghe Bluetooth true wireless, màu đen, giá dễ tiếp cận.</p>
+        <p class="price">220.000₫</p><button class="btn btn-sm add-cart" type="button">Thêm vào giỏ</button>
+      </article>
+      <article class="card product" data-cat="audio" data-aos="fade-up" data-aos-delay="100">
+        <figure class="tint-mist"><img src="assets/img/tai-nghe.svg" alt="Tai nghe Bluetooth True Wireless Baseus Bass BP1 Pro PM132" width="200" height="200" loading="lazy"></figure>
+        <h3>Tai nghe TWS Baseus Bass BP1 Pro</h3><p class="desc">Tai nghe Bluetooth true wireless, dòng Bass BP1 Pro PM132.</p>
+        <p class="price">490.000₫</p><button class="btn btn-sm add-cart" type="button">Thêm vào giỏ</button>
+      </article>
+      <article class="card product" data-cat="audio" data-aos="fade-up" data-aos-delay="200">
+        <figure class="tint-mist"><img src="assets/img/tai-nghe.svg" alt="Tai nghe TWS Xiaomi Redmi Buds 8 Lite" width="200" height="200" loading="lazy"></figure>
+        <h3>Tai nghe TWS Xiaomi Redmi Buds 8 Lite</h3><p class="desc">Tai nghe Bluetooth true wireless của Xiaomi, dòng Redmi Buds 8 Lite.</p>
+        <p class="price">750.000₫</p><button class="btn btn-sm add-cart" type="button">Thêm vào giỏ</button>
+      </article>
+      <article class="card product" data-cat="audio" data-aos="fade-up" data-aos-delay="300">
+        <figure class="tint-mist"><img src="assets/img/tai-nghe.svg" alt="Tai nghe chụp tai Sony WH-CH520" width="200" height="200" loading="lazy"></figure>
+        <h3>Tai nghe chụp tai Sony WH-CH520</h3><p class="desc">Tai nghe Bluetooth chụp tai của Sony, đệm tai ôm trọn.</p>
+        <p class="price">890.000₫</p><button class="btn btn-sm add-cart" type="button">Thêm vào giỏ</button>
+      </article>
+      <article class="card product" data-cat="cable" data-aos="fade-up">
+        <figure class="tint-sand"><img src="assets/img/day-sac.svg" alt="Cáp sạc nhanh và truyền dữ liệu Type-C - Type-C 60W 1,5 m Innostyle SCC150WHT" width="200" height="200" loading="lazy"></figure>
+        <h3>Cáp Type-C to Type-C 60W Innostyle</h3><p class="desc">Sạc nhanh và truyền dữ liệu, công suất 60W, dài 1,5 m.</p>
+        <p class="price">125.000₫</p><button class="btn btn-sm add-cart" type="button">Thêm vào giỏ</button>
+      </article>
+      <article class="card product" data-cat="cable" data-aos="fade-up" data-aos-delay="100">
+        <figure class="tint-sand"><img src="assets/img/day-sac.svg" alt="Cáp sạc nhanh và truyền dữ liệu Type-C - Lightning 27W 1,5 m Innostyle SCL150WHT" width="200" height="200" loading="lazy"></figure>
+        <h3>Cáp Type-C to Lightning 27W Innostyle</h3><p class="desc">Sạc nhanh và truyền dữ liệu cho iPhone, công suất 27W, dài 1,5 m.</p>
+        <p class="price">195.000₫</p><button class="btn btn-sm add-cart" type="button">Thêm vào giỏ</button>
+      </article>
+      <article class="card product" data-cat="cable" data-aos="fade-up" data-aos-delay="200">
+        <figure class="tint-sand"><img src="assets/img/day-sac.svg" alt="Sạc nhanh 3 cổng USB Type-C QC3.0 PD 65W Ugreen CD244 10335" width="200" height="200" loading="lazy"></figure>
+        <h3>Củ sạc nhanh 3 cổng 65W Ugreen CD244</h3><p class="desc">Ba cổng Type-C, hỗ trợ QC3.0 và PD, tổng công suất 65W.</p>
+        <p class="price">520.000₫</p><button class="btn btn-sm add-cart" type="button">Thêm vào giỏ</button>
+      </article>
+      <article class="card product" data-cat="cable" data-aos="fade-up" data-aos-delay="300">
+        <figure class="tint-sand"><img src="assets/img/day-sac.svg" alt="Adapter sạc du lịch đa cổng PD 35W Aukey PA-TA07A" width="200" height="200" loading="lazy"></figure>
+        <h3>Củ sạc du lịch đa cổng 35W Aukey</h3><p class="desc">Adapter sạc du lịch nhiều cổng, chuẩn PD 35W, mã PA-TA07A.</p>
+        <p class="price">640.000₫</p><button class="btn btn-sm add-cart" type="button">Thêm vào giỏ</button>
+      </article>
+      <article class="card product" data-cat="power" data-aos="fade-up">
+        <figure class="tint-rose"><img src="assets/img/sac-du-phong.svg" alt="Pin sạc dự phòng Golf G80-C 10.000 mAh Polymer Type-C 10,5W" width="200" height="200" loading="lazy"></figure>
+        <h3>Sạc dự phòng Golf G80-C 10.000 mAh</h3><p class="desc">Pin Polymer 10.000 mAh, cổng Type-C, công suất 10,5W.</p>
+        <p class="price">165.000₫</p><button class="btn btn-sm add-cart" type="button">Thêm vào giỏ</button>
+      </article>
+      <article class="card product" data-cat="power" data-aos="fade-up" data-aos-delay="100">
+        <figure class="tint-rose"><img src="assets/img/sac-du-phong.svg" alt="Pin sạc dự phòng Golf P51 10.000 mAh Type-C 22,5W màn hình số" width="200" height="200" loading="lazy"></figure>
+        <h3>Sạc dự phòng Golf P51 10.000 mAh</h3><p class="desc">10.000 mAh, sạc nhanh 22,5W, màn hình số báo pin. Màu đen.</p>
+        <p class="price">250.000₫</p><button class="btn btn-sm add-cart" type="button">Thêm vào giỏ</button>
+      </article>
+      <article class="card product" data-cat="power" data-aos="fade-up" data-aos-delay="200">
+        <figure class="tint-rose"><img src="assets/img/sac-du-phong.svg" alt="Pin sạc dự phòng Polymer 10.000 mAh Aukey PB-Y46 Xám Đậm" width="200" height="200" loading="lazy"></figure>
+        <h3>Sạc dự phòng Aukey PB-Y46 Xám Đậm</h3><p class="desc">Pin Polymer 10.000 mAh, Type-C, hỗ trợ PD và QC3.0, 15W.</p>
+        <p class="price">305.000₫</p><button class="btn btn-sm add-cart" type="button">Thêm vào giỏ</button>
+      </article>
+      <article class="card product" data-cat="power" data-aos="fade-up" data-aos-delay="300">
+        <figure class="tint-rose"><img src="assets/img/sac-du-phong.svg" alt="Pin sạc dự phòng Polymer 10.000 mAh Aukey PB-Y46 Xám Bạc" width="200" height="200" loading="lazy"></figure>
+        <h3>Sạc dự phòng Aukey PB-Y46 Xám Bạc</h3><p class="desc">Pin Polymer 10.000 mAh, Type-C, hỗ trợ PD và QC3.0, 15W.</p>
+        <p class="price">340.000₫</p><button class="btn btn-sm add-cart" type="button">Thêm vào giỏ</button>
+      </article>
+    </div>
+  </section>
+
+  <section id="uu-diem" class="section" aria-labelledby="why-title">
+    <h2 id="why-title" data-aos="fade-up">Vì sao chọn TANAS?</h2>
+    <ul class="grid grid-4 perks">
+      <li class="card" data-aos="fade-up"><span class="num">01</span><h3>Giao nhanh 2 giờ</h3><p>Nội thành, nhận hàng trong ngày.</p></li>
+      <li class="card" data-aos="fade-up" data-aos-delay="100"><span class="num">02</span><h3>Bảo hành 12 tháng</h3><p>Lỗi nhà sản xuất đổi mới.</p></li>
+      <li class="card" data-aos="fade-up" data-aos-delay="200"><span class="num">03</span><h3>Đổi trả 7 ngày</h3><p>Không hài lòng, hoàn tiền.</p></li>
+      <li class="card" data-aos="fade-up" data-aos-delay="300"><span class="num">04</span><h3>Thanh toán an toàn</h3><p>COD, chuyển khoản, ví điện tử.</p></li>
+    </ul>
+  </section>
+
+  <section id="lien-he" class="newsletter" aria-labelledby="news-title">
+    <h2 id="news-title" data-aos="fade-up">Nhận mã giảm giá 10%</h2>
+    <p data-aos="fade-up">Để lại email, TANAS gửi ưu đãi và sản phẩm mới mỗi tuần.</p>
+    <form class="news-form" data-aos="zoom-in">
+      <label for="email">Email của bạn</label>
+      <input id="email" type="email" placeholder="ban@example.com" required>
+      <button class="btn btn-gold" type="submit">Đăng ký</button>
+    </form>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="foot-brand">
+    <p class="brand"><img src="assets/img/logo-mark.webp" alt="" width="44" height="44"><span>TANAS</span></p>
+    <p>Phụ kiện điện thoại cao cấp, chọn lọc bởi Nguyễn Hoài Tấn.</p>
+  </div>
+  <nav aria-label="Chân trang">
+    <ul>
+      <li><a href="#danh-muc">Danh mục</a></li>
+      <li><a href="#san-pham">Sản phẩm</a></li>
+      <li><a href="#uu-diem">Vì sao chọn TANAS</a></li>
+      <li><a href="#lien-he">Liên hệ</a></li>
+    </ul>
+  </nav>
+  <address>
+    Đại Học Lạc Hồng, Biên Hòa, Đồng Nai<br>
+    Email: <a href="mailto:hoaituan23506@gmail.com">hoaituan23506@gmail.com</a>
+  </address>
+  <p class="copy"><small>&copy; 2026 TANAS - Nguyễn Hoài Tấn. Bài giữa kỳ môn Thiết kế Web.</small></p>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  // Menu trên điện thoại
+  const toggle = document.getElementById('menuToggle'), nav = document.getElementById('mainNav');
+  toggle.addEventListener('click', () => {
+    toggle.setAttribute('aria-expanded', nav.classList.toggle('open'));
+  });
+  nav.addEventListener('click', e => { if (e.target.tagName === 'A') { nav.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); } });
+
+  // Đếm số sản phẩm trong giỏ
+  let count = 0;
+  const countEl = document.getElementById('cartCount');
+  document.querySelectorAll('.add-cart').forEach(btn => btn.addEventListener('click', () => {
+    countEl.textContent = ++count;
+    btn.textContent = 'Đã thêm ✓';
+    setTimeout(() => (btn.textContent = 'Thêm vào giỏ'), 1200);
+    burst(btn);
+    countEl.classList.remove('bump'); void countEl.offsetWidth; countEl.classList.add('bump');
+  }));
+
+  // Lọc sản phẩm theo danh mục
+  const products = document.querySelectorAll('.product'), chips = document.querySelectorAll('.filters button');
+  function applyFilter(f) {
+    products.forEach(p => { p.hidden = f !== 'all' && p.dataset.cat !== f; });
+    chips.forEach(c => c.setAttribute('aria-pressed', c.dataset.filter === f));
+  }
+  document.querySelectorAll('[data-filter]').forEach(el => el.addEventListener('click', () => applyFilter(el.dataset.filter)));
+
+
+  /* ================= HIỆU ỨNG "WOW" ================= */
+  const root = document.documentElement;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  // 1) Màn intro: tự mở sau 2,4 giây, nhấn hoặc bấm phím để bỏ qua
+  const intro = document.getElementById('intro');
+  let opened = false;
+  function openIntro() {
+    if (opened || !intro) return;
+    opened = true;
+    intro.classList.add('is-open');
+    setTimeout(() => { root.classList.add('intro-done'); setTimeout(runCountUp, 900); }, 650);
+    setTimeout(() => intro.remove(), 1700);
+  }
+  if (root.classList.contains('has-intro') && intro) {
+    setTimeout(openIntro, 2400);
+    intro.addEventListener('click', openIntro);
+    addEventListener('keydown', openIntro, { once: true });
+  } else {
+    if (intro) intro.remove();
+    root.classList.add('intro-done');
+  }
+
+  // 2) Số thống kê đếm lên
+  function runCountUp() {
+    if (reduce) return;
+    document.querySelectorAll('[data-count]').forEach(el => {
+      const end = +el.dataset.count, suffix = el.dataset.suffix || '', t0 = performance.now(), dur = 1400;
+      (function tick(t) {
+        const k = Math.min((t - t0) / dur, 1), e = 1 - Math.pow(1 - k, 3);
+        el.textContent = Math.round(end * e) + suffix;
+        if (k < 1) requestAnimationFrame(tick);
+      })(t0);
+    });
+  }
+
+  // 3) Thanh tiến trình cuộn trang
+  function onScroll() {
+    const max = root.scrollHeight - innerHeight;
+    root.style.setProperty('--p', max > 0 ? scrollY / max : 0);
+  }
+  addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // 4) Vệt sáng đi theo con trỏ (chỉ trên máy có chuột)
+  if (fine && !reduce) {
+    addEventListener('pointermove', e => {
+      root.style.setProperty('--mx', e.clientX + 'px');
+      root.style.setProperty('--my', e.clientY + 'px');
+    }, { passive: true });
+  }
+
+  // 5) Hero: logo nghiêng 3D theo chuột + bụi sáng bay, né con trỏ và nối thành chòm sao
+  const hero = document.querySelector('.hero'), stage = document.getElementById('stage');
+  const cv = document.getElementById('sparks');
+  const mouse = { x: -999, y: -999 };
+  if (fine && !reduce) {
+    hero.addEventListener('pointermove', e => {
+      const r = hero.getBoundingClientRect();
+      mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top;
+      const px = mouse.x / r.width - .5, py = mouse.y / r.height - .5;
+      stage.style.setProperty('--ry', (px * 18).toFixed(1) + 'deg');
+      stage.style.setProperty('--rx', (-py * 14).toFixed(1) + 'deg');
+    });
+    hero.addEventListener('pointerleave', () => {
+      mouse.x = mouse.y = -999;
+      stage.style.removeProperty('--rx'); stage.style.removeProperty('--ry');
+    });
+  }
+  if (cv && !reduce) {
+    const ctx = cv.getContext('2d');
+    let w = 0, h = 0, ps = [], running = false, inView = true;
+    const mk = () => ({ x: Math.random() * w, y: Math.random() * h, r: Math.random() * 1.8 + .7,
+      vx: (Math.random() - .5) * .3, vy: -(Math.random() * .35 + .1), t: Math.random() * 6.28, gold: Math.random() < .55 });
+    function resize() {
+      const dpr = Math.min(devicePixelRatio || 1, 2);
+      w = hero.clientWidth; h = hero.clientHeight;
+      cv.width = w * dpr; cv.height = h * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ps = Array.from({ length: Math.min(70, Math.round(w * h / 14000)) }, mk);
+    }
+    function frame() {
+      if (!running) return;
+      ctx.clearRect(0, 0, w, h);
+      for (const p of ps) {
+        const dx = p.x - mouse.x, dy = p.y - mouse.y, d = Math.hypot(dx, dy);
+        if (d < 130 && d > 0) { p.x += dx / d * (130 - d) * .04; p.y += dy / d * (130 - d) * .04; }
+        p.x += p.vx; p.y += p.vy; p.t += .03;
+        if (p.y < -6) { p.y = h + 6; p.x = Math.random() * w; }
+        if (p.x < -6) p.x = w + 6; else if (p.x > w + 6) p.x = -6;
+      }
+      for (let i = 0; i < ps.length; i++) {
+        const a = ps[i];
+        for (let j = i + 1; j < ps.length; j++) {
+          const b = ps[j], d = Math.hypot(a.x - b.x, a.y - b.y);
+          if (d < 95) { ctx.strokeStyle = 'rgba(236,209,138,' + ((1 - d / 95) * .2) + ')'; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); }
+        }
+        const dm = Math.hypot(a.x - mouse.x, a.y - mouse.y);
+        if (dm < 150) { ctx.strokeStyle = 'rgba(255,255,255,' + ((1 - dm / 150) * .45) + ')'; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke(); }
+        const al = .4 + .4 * Math.sin(a.t);
+        ctx.fillStyle = a.gold ? 'rgba(236,209,138,' + al + ')' : 'rgba(205,185,255,' + al + ')';
+        ctx.beginPath(); ctx.arc(a.x, a.y, a.r, 0, 6.2832); ctx.fill();
+      }
+      requestAnimationFrame(frame);
+    }
+    function sync() {
+      const want = inView && !document.hidden;
+      if (want && !running) { running = true; requestAnimationFrame(frame); } else if (!want) running = false;
+    }
+    resize(); addEventListener('resize', resize);
+    new IntersectionObserver(([en]) => { inView = en.isIntersecting; sync(); }).observe(hero);
+    document.addEventListener('visibilitychange', sync);
+    sync();
+  }
+
+  // 6) Thẻ sản phẩm: ảnh nghiêng 3D + ánh sáng quét theo con trỏ
+  if (fine && !reduce) {
+    document.querySelectorAll('.product').forEach(card => {
+      const fig = card.querySelector('figure');
+      card.addEventListener('pointermove', e => {
+        const r = card.getBoundingClientRect(), px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
+        fig.style.setProperty('--ry', ((px - .5) * 20).toFixed(1) + 'deg');
+        fig.style.setProperty('--rx', ((.5 - py) * 16).toFixed(1) + 'deg');
+        fig.style.setProperty('--gx', (px * 100).toFixed(0) + '%');
+        fig.style.setProperty('--gy', (py * 100).toFixed(0) + '%');
+      });
+      card.addEventListener('pointerleave', () => ['--rx', '--ry', '--gx', '--gy'].forEach(v => fig.style.removeProperty(v)));
+    });
+  }
+
+  // 7) Bấm "Thêm vào giỏ": pháo sáng vàng bắn ra từ nút
+  function burst(btn) {
+    if (reduce) return;
+    const r = btn.getBoundingClientRect(), cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+    for (let i = 0; i < 16; i++) {
+      const s = document.createElement('i');
+      s.className = 'spark'; s.style.left = cx + 'px'; s.style.top = cy + 'px';
+      document.body.appendChild(s);
+      const a = Math.random() * 6.2832, d = 45 + Math.random() * 60;
+      s.animate([
+        { transform: 'translate(-50%,-50%) scale(1) rotate(0deg)', opacity: 1 },
+        { transform: 'translate(calc(-50% + ' + Math.cos(a) * d + 'px), calc(-50% + ' + Math.sin(a) * d + 'px)) scale(0) rotate(180deg)', opacity: 0 }
+      ], { duration: 600 + Math.random() * 350, easing: 'cubic-bezier(.2,.8,.3,1)' }).onfinish = () => s.remove();
+    }
+  }
+
+  // AOS (nếu không tải được thư viện thì vẫn hiện nội dung)
+  if (window.AOS) AOS.init({ duration: 700, once: true, offset: 60 });
+  else document.querySelectorAll('[data-aos]').forEach(el => el.removeAttribute('data-aos'));
+</script>
+</body>
+</html>
